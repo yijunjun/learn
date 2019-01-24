@@ -46,6 +46,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  /*
   int _counter = 0;
 
   void _incrementCounter() {
@@ -58,9 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+  */
 
   void _share() {
-    Share.share('我的wiki https://github.com/yijunjun/yijunjun.github.io');
+    Share.share('易军军的wiki https://yijunun.github.com/');
   }
 
   @override
@@ -116,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   textScaleFactor: 3,
                 ),
               QrImage(
-                  data: "https://github.com/yijunjun/yijunjun.github.io",
+                  data: "https://yijunun.github.com/",
                   size: 300.0,
                 ),
                 Text(
@@ -128,14 +130,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   tooltip: '分享wiki',
                   child: Icon(Icons.share),
                 ), 
-                Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.display1,
-                ),
               ],
             ),
           ),
-        ),
+       ),
       ),
     );
   }
