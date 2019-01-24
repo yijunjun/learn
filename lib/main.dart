@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-// import 'package:share/share.dart';
+import 'package:share/share.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '易军军的简历',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: '易军军的简历'),
     );
   }
 }
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _share() {
-    // Share.share('分享网站 https://baidu.com');
+    Share.share('我的wiki https://github.com/yijunjun/yijunjun.github.io');
   }
 
   @override
@@ -77,50 +77,66 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+      body: Scrollbar(
+        child:SingleChildScrollView(
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          child:Center(
+            child: Column(
+              // Column is also layout widget. It takes a list of children and
+              // arranges them vertically. By default, it sizes itself to fit its
+              // children horizontally, and tries to be as tall as its parent.
+              //
+              // Invoke "debug painting" (press "p" in the console, choose the
+              // "Toggle Debug Paint" action from the Flutter Inspector in Android
+              // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+              // to see the wireframe for each widget.
+              //
+              // Column has various properties to control how it sizes itself and
+              // how it positions its children. Here we use mainAxisAlignment to
+              // center the children vertically; the main axis here is the vertical
+              // axis because Columns are vertical (the cross axis would be
+              // horizontal).
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+              QrImage(
+                  data: "https://github.com/yijunjun/yijunjun.github.io",
+                  size: 300.0,
+                ),
+                Text(
+                  'IOS',
+                  textScaleFactor: 3,
+                ),
+              QrImage(
+                  data: "https://github.com/yijunjun/yijunjun.github.io",
+                  size: 300.0,
+                ),
+                Text(
+                  'Android',
+                  textScaleFactor: 3,
+                ),
+              QrImage(
+                  data: "https://github.com/yijunjun/yijunjun.github.io",
+                  size: 300.0,
+                ),
+                Text(
+                  'Wiki',
+                  textScaleFactor: 3,
+                ),
+                FloatingActionButton(
+                  onPressed: _share,
+                  tooltip: '分享wiki',
+                  child: Icon(Icons.share),
+                ), 
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.display1,
+                ),
+              ],
             ),
-           QrImage(
-              data: "http://www.baidu.com/",
-              size: 200.0,
-            ),
-            FloatingActionButton(
-              onPressed: _share,
-              tooltip: '增加',
-              child: Icon(Icons.add),
-            ), 
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
