@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+class WebPage extends StatefulWidget {
+  WebPage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,14 +16,10 @@ class HomePage extends StatefulWidget {
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _WebPageState createState() => _WebPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  void _share() {
-    Share.share('易军军的简历 https://resume.pycode.cn/download.html');
-  }
-
+class _WebPageState extends State<WebPage> {
   Future<bool> _onWillPop() {
     return showDialog(
       context: context,
@@ -53,18 +49,24 @@ class _HomePageState extends State<HomePage> {
     // than having to individually change instances of widgets.
     return WillPopScope(
         onWillPop: _onWillPop,
-        child: Scaffold(
+        child: WebviewScaffold(
           appBar: AppBar(
             // Here we take the value from the MyHomePage object that was created by
             // the App.build method, and use it to set our appbar title.
             title: Text(widget.title),
           ),
-          floatingActionButton: FloatingActionButton( //悬浮按钮
-              tooltip:'分享简历',
-              child: Icon(Icons.share),
-              onPressed:_share
+          url:"https://resume.pycode.cn/",
+          withZoom: true,
+          withLocalStorage: true,
+          hidden: true,
+          scrollBar:true,
+          allowFileURLs:true,
+          initialChild: Container(
+            color: Colors.redAccent,
+            child: const Center(
+            child: Text('Waiting.....'),
+            ),
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             color: Colors.white,
             shape: CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
