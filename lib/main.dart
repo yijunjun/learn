@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import "./download.dart";
-import "./home.dart";
 import "./web.dart";
 
 void main() => runApp(MyApp());
@@ -24,11 +23,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes:{
-        "DownloadPage":(context)=>DownloadPage(title:"下载页"),
-        "HomePage":(context)=>HomePage(title:"易军军的简历"),
-        "WebPage":(context)=>WebPage(title:"Web"),
+        "DownloadPage":(context)=>DownloadPage(title:"下载"),
+        "WebPage":(context)=>WebPage(title:"简历"),
       } ,
-      home:WebPage(title:"Web"),
+      home:WebPage(title:"简历"),
     );
   }
 }

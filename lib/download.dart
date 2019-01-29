@@ -22,7 +22,7 @@ class DownloadPage extends StatefulWidget {
 
 class _DownloadState extends State<DownloadPage> {
   void _share() {
-    Share.share('易军军的wiki https://yijunun.github.com/');
+    Share.share('易军军的Wiki https://yijunun.github.com/');
   }
 
   Future<bool> _onWillPop() {

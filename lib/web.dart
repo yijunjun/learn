@@ -67,6 +67,7 @@ class _WebPageState extends State<WebPage> {
             child: Text('Waiting.....'),
             ),
           ),
+          /*
           bottomNavigationBar: BottomAppBar(
             color: Colors.white,
             shape: CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
@@ -75,7 +76,7 @@ class _WebPageState extends State<WebPage> {
                 IconButton(
                   icon: Icon(Icons.home), 
                   onPressed: () {
-                    Navigator.pushNamed(context, "HomePage");
+                    Navigator.pushNamed(context, "WebPage");
                   },
                 ),
                 SizedBox(), //中间位置空出
@@ -89,6 +90,7 @@ class _WebPageState extends State<WebPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
             ),
           ),
+          */
         ),
     );
   }
