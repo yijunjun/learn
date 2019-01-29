@@ -57,6 +57,7 @@ class _WebPageState extends State<WebPage> {
           ),
           url:"https://resume.pycode.cn/",
           withZoom: true,
+          withJavascript:true,
           withLocalStorage: true,
           hidden: true,
           scrollBar:true,
